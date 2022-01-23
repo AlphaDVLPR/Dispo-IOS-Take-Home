@@ -53,6 +53,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F8C99FEC279DFE1A00096DF6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FF9415E825EEEA4C0029E28F /* Main */,
+				FF9415EA25EEEA510029E28F /* Detail */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F8C99FED279DFE7F00096DF6 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FF9415E525EEDF380029E28F /* GifApiClient.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		F8C99FEE279DFE8E00096DF6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FF9415F525EEF5760029E28F /* GifInfo.swift */,
+				FF9415E125EEDC3A0029E28F /* SearchResult.swift */,
+				9A829F01277D7CF7002C03F2 /* APIListResponse.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F8C99FEF279DFEAB00096DF6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FF9415B425EECD340029E28F /* AppDelegate.swift */,
+				FF9415B625EECD340029E28F /* SceneDelegate.swift */,
+				FF9415BA25EECD350029E28F /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		FF9415A825EECD340029E28F = {
 			isa = PBXGroup;
 			children = (
@@ -72,12 +109,11 @@
 		FF9415B325EECD340029E28F /* Dispo Take Home */ = {
 			isa = PBXGroup;
 			children = (
-				FF9415B425EECD340029E28F /* AppDelegate.swift */,
-				FF9415B625EECD340029E28F /* SceneDelegate.swift */,
-				FF9415E825EEEA4C0029E28F /* Main */,
-				FF9415EA25EEEA510029E28F /* Detail */,
+				F8C99FEC279DFE1A00096DF6 /* Views */,
+				F8C99FED279DFE7F00096DF6 /* Controllers */,
+				F8C99FEE279DFE8E00096DF6 /* Models */,
 				FF9415EC25EEEA560029E28F /* Util */,
-				FF9415BA25EECD350029E28F /* Assets.xcassets */,
+				F8C99FEF279DFEAB00096DF6 /* Resources */,
 				FF9415BF25EECD350029E28F /* LaunchScreen.storyboard */,
 				FF9415C225EECD350029E28F /* Info.plist */,
 				FF9415BC25EECD350029E28F /* Preview Content */,
@@ -113,10 +149,6 @@
 			isa = PBXGroup;
 			children = (
 				FF9415D425EED60B0029E28F /* Constants.swift */,
-				FF9415F525EEF5760029E28F /* GifInfo.swift */,
-				FF9415E125EEDC3A0029E28F /* SearchResult.swift */,
-				FF9415E525EEDF380029E28F /* GifApiClient.swift */,
-				9A829F01277D7CF7002C03F2 /* APIListResponse.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
