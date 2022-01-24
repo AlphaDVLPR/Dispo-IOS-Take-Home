@@ -59,7 +59,7 @@ final class GifCell: UICollectionViewCell {
         gifImageView.translatesAutoresizingMaskIntoConstraints = false
         title.translatesAutoresizingMaskIntoConstraints = false
         
-        // Layout constraints for `profileImageView`
+        // Layout constraints for `GifImage`
         NSLayoutConstraint.activate([
             gifImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             gifImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
@@ -67,7 +67,7 @@ final class GifCell: UICollectionViewCell {
             gifImageView.heightAnchor.constraint(equalToConstant: Constants.imageHeight)
         ])
 
-        // Layout constraints for `usernameLabel`
+        // Layout constraints for 'title'
         NSLayoutConstraint.activate([
             title.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Constants.horizontalPadding),
             title.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Constants.horizontalPadding),
