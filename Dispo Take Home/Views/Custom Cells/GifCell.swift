@@ -21,7 +21,7 @@ final class GifCell: UICollectionViewCell {
         static let imageHeight: CGFloat = 180.0
         
         //layout constants
-        static let contentViewCornerRadius: CGFloat = 4.0
+        static let contentViewCornerRadius: CGFloat = 8.0
         static let verticalSpacing: CGFloat = 8.0
         static let horizontalPadding: CGFloat = 16.0
         static let gifDescriptionVerticalPadding: CGFloat = 8.0
@@ -29,7 +29,8 @@ final class GifCell: UICollectionViewCell {
     
     private let gifImageView: UIImageView = {
         let imageView = UIImageView(frame: .zero)
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleToFill
+        
         return imageView
     }()
     
@@ -48,7 +49,6 @@ final class GifCell: UICollectionViewCell {
     
     private func setupViews() {
         contentView.clipsToBounds = true
-        contentView.layer.cornerRadius = Constants.contentViewCornerRadius
         contentView.backgroundColor = .systemBackground
         
         contentView.addSubview(gifImageView)
@@ -66,7 +66,7 @@ final class GifCell: UICollectionViewCell {
             gifImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
             gifImageView.heightAnchor.constraint(equalToConstant: Constants.imageHeight)
         ])
-
+        
         // Layout constraints for 'title'
         NSLayoutConstraint.activate([
             title.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Constants.horizontalPadding),
@@ -80,7 +80,14 @@ final class GifCell: UICollectionViewCell {
     }
     
     func setup(with gif: GifObject) {
-        gifImageView.image = try? UIImage(withContentsOfUrl: gif.images.fixed_height.url)
+        guard let unWrappedGifUrl = gif.images.fixed_height.url else { return }
+        if let loadedGif = UIImage.gifImageWithURL(unWrappedGifUrl.absoluteString) {
+            FetchImage.shared.fetchImage(result: gif) { (image) in
+                DispatchQueue.main.async {
+                    self.gifImageView.image = loadedGif
+                }
+            }
+        }
         title.text = gif.title
     }
 }

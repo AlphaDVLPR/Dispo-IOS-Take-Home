@@ -15,12 +15,7 @@ class MainViewController: UIViewController {
         navigationItem.titleView = searchBar
         setupViews()
         setupLayouts()
-        GifAPIClient.shared.searchTrendingGifs { (gifObjects) in
-            DispatchQueue.main.async {
-                self.gifObjects = gifObjects
-                self.collectionView.reloadData()
-            }
-        }
+        updateViews()
     }
     
     private lazy var searchBar: UISearchBar = {
@@ -55,6 +50,15 @@ class MainViewController: UIViewController {
             $0.edges.equalToSuperview()
         }
     }
+    
+    private func updateViews() {
+        GifAPIClient.shared.searchTrendingGifs { (gifObjects) in
+            DispatchQueue.main.async {
+                self.gifObjects = gifObjects
+                self.collectionView.reloadData()
+            }
+        }
+    }
 }
 
 // MARK: UISearchBarDelegate
@@ -76,7 +80,7 @@ extension MainViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GifCell.identifier, for: indexPath) as! GifCell
         let gifObject = gifObjects[indexPath.row]
         cell.setup(with: gifObject)
-        cell.contentView.backgroundColor = .lightGray
+        cell.contentView.backgroundColor = .systemBackground
         return cell
     }
 }

@@ -11,6 +11,7 @@
 		9DF89A43279E56B30067F488 /* GifCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF89A42279E56B30067F488 /* GifCell.swift */; };
 		F8C99FF2279E1E8B00096DF6 /* GiphyMagicStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C99FF1279E1E8B00096DF6 /* GiphyMagicStrings.swift */; };
 		F8C99FFE279F815F00096DF6 /* FetchImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C99FFD279F815F00096DF6 /* FetchImage.swift */; };
+		F8C9A001279FBFAA00096DF6 /* GifLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C9A000279FBFAA00096DF6 /* GifLoader.swift */; };
 		FF9415B525EECD340029E28F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9415B425EECD340029E28F /* AppDelegate.swift */; };
 		FF9415B725EECD340029E28F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9415B625EECD340029E28F /* SceneDelegate.swift */; };
 		FF9415BB25EECD350029E28F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF9415BA25EECD350029E28F /* Assets.xcassets */; };
@@ -31,6 +32,7 @@
 		9DF89A42279E56B30067F488 /* GifCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifCell.swift; sourceTree = "<group>"; };
 		F8C99FF1279E1E8B00096DF6 /* GiphyMagicStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphyMagicStrings.swift; sourceTree = "<group>"; };
 		F8C99FFD279F815F00096DF6 /* FetchImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchImage.swift; sourceTree = "<group>"; };
+		F8C9A000279FBFAA00096DF6 /* GifLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifLoader.swift; sourceTree = "<group>"; };
 		FF9415B125EECD340029E28F /* Dispo Take Home.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dispo Take Home.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF9415B425EECD340029E28F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF9415B625EECD340029E28F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,14 +61,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9DF89A44279FA2DC0067F488 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				F8C99FFD279F815F00096DF6 /* FetchImage.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
 		F8C99FEC279DFE1A00096DF6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -114,6 +108,14 @@
 			path = "Custom Cells";
 			sourceTree = "<group>";
 		};
+		F8C99FFF279FBF9800096DF6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F8C9A000279FBFAA00096DF6 /* GifLoader.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		FF9415A825EECD340029E28F = {
 			isa = PBXGroup;
 			children = (
@@ -137,7 +139,7 @@
 				F8C99FED279DFE7F00096DF6 /* Controllers */,
 				F8C99FEE279DFE8E00096DF6 /* Models */,
 				FF9415EC25EEEA560029E28F /* Util */,
-				9DF89A44279FA2DC0067F488 /* Extensions */,
+				F8C99FFF279FBF9800096DF6 /* Extensions */,
 				F8C99FEF279DFEAB00096DF6 /* Resources */,
 				FF9415C225EECD350029E28F /* Info.plist */,
 				FF9415BC25EECD350029E28F /* Preview Content */,
@@ -174,6 +176,7 @@
 			children = (
 				FF9415D425EED60B0029E28F /* Constants.swift */,
 				F8C99FF1279E1E8B00096DF6 /* GiphyMagicStrings.swift */,
+				F8C99FFD279F815F00096DF6 /* FetchImage.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 				FF9415E625EEDF380029E28F /* GifApiClient.swift in Sources */,
 				FF9415D525EED60B0029E28F /* Constants.swift in Sources */,
 				FF9415E225EEDC3A0029E28F /* SearchResult.swift in Sources */,
+				F8C9A001279FBFAA00096DF6 /* GifLoader.swift in Sources */,
 				FF9415CB25EED1360029E28F /* MainViewController.swift in Sources */,
 				FF9415B525EECD340029E28F /* AppDelegate.swift in Sources */,
 				F8C99FFE279F815F00096DF6 /* FetchImage.swift in Sources */,

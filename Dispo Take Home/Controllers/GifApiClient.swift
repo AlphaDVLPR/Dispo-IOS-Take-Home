@@ -19,7 +19,6 @@ struct GifAPIClient {
         urlComponent.scheme = Constants.giphyApiScheme
         urlComponent.host = Constants.giphyApiHost
         urlComponent.path = "/v1/gifs/trending"
-        print(urlComponent)
         
         guard let baseURL = urlComponent.url else { return }
         
@@ -32,7 +31,6 @@ struct GifAPIClient {
         
         //creating a request from the URL
         guard let urlRequest = urlComponents?.url else { completion([]) ; return }
-        print(urlRequest)
         
         //data task
         URLSession.shared.dataTask(with: urlRequest) { (data, _, error) in
@@ -64,7 +62,6 @@ struct GifAPIClient {
         urlComponent.scheme = Constants.giphyApiScheme
         urlComponent.host = Constants.giphyApiHost
         urlComponent.path = "/v1/gifs/search"
-        print(urlComponent)
         
         guard let baseURL = urlComponent.url else { return }
         
@@ -81,7 +78,6 @@ struct GifAPIClient {
         
         //creating a request from the URL
         guard let urlRequest = urlComponents?.url else { completion([]) ; return }
-        print(urlRequest)
         
         //data task
         URLSession.shared.dataTask(with: urlRequest) { (data, _, error) in
@@ -113,7 +109,6 @@ struct GifAPIClient {
         urlComponent.scheme = Constants.giphyApiScheme
         urlComponent.host = Constants.giphyApiHost
         urlComponent.path = "/v1/gifs/\(gifID)"
-        print(urlComponent)
         
         guard let baseURL = urlComponent.url else { return }
         
@@ -125,7 +120,6 @@ struct GifAPIClient {
         
         //creating a request from the URL
         guard let urlRequest = urlComponents?.url else { completion([]) ; return }
-        print(urlRequest)
         
         //data task
         URLSession.shared.dataTask(with: urlRequest) { (data, _, error) in
