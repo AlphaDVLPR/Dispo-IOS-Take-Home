@@ -2,6 +2,7 @@ import UIKit
 
 class MainViewController: UIViewController {
     
+    //Source of truth
     var gifObjects: [GifObject] = []
     
     private enum LayoutConstant {
@@ -60,10 +61,6 @@ class MainViewController: UIViewController {
             }
         }
     }
-    
-    private func updateSearchViews() {
-        
-    }
 }
 
 // MARK: - UISearchBarDelegate
@@ -76,12 +73,9 @@ extension MainViewController: UISearchBarDelegate {
         
         GifAPIClient.shared.searchGifs(searchTerm: searchTerm) { (searched) in
             self.gifObjects = searched
-            print(self.gifObjects)
             
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
-                print(self.collectionView)
-                
             }
         }
     }
@@ -116,7 +110,6 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
         
         let totalSpacing: CGFloat = 2 * spacing + (itemsInRow - 1) * spacing
         let finalWidth = (width - totalSpacing) / itemsInRow
-        
         return floor(finalWidth)
     }
     
