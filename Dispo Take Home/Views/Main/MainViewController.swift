@@ -74,7 +74,6 @@ extension MainViewController: UISearchBarDelegate {
         
         GifAPIClient.shared.searchGifs(searchTerm: searchTerm) { (searched) in
             self.gifObjects = searched
-            
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
             }
@@ -101,7 +100,7 @@ extension MainViewController: UICollectionViewDataSource {
         let gifID = gifObjects[indexPath.row].id
         GifAPIClient.shared.gifID = gifID
         let vc = DetailViewController()
-        present(vc, animated: true, completion: nil)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 

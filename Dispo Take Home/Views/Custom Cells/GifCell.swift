@@ -30,7 +30,6 @@ final class GifCell: UICollectionViewCell {
     private let gifImageView: UIImageView = {
         let imageView = UIImageView(frame: .zero)
         imageView.contentMode = .scaleToFill
-        
         return imageView
     }()
     
