@@ -9,4 +9,5 @@ import Foundation
 
 struct GiphyMagicStrings {
     
+    //TO DO
 }

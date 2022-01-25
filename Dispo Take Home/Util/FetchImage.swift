@@ -14,7 +14,6 @@ struct FetchImage {
     //Fetch Image
     func fetchImage(result: GifObject, completion: @escaping (UIImage?) -> Void) {
         
-        //This is our Url for the image search  ***refer to Helper File for clarification***
         let baseUrl = result.images.fixed_height.url
         
         //Start the URL Session

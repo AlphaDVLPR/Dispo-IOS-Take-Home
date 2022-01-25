@@ -1,5 +1,7 @@
 enum Constants {}
 
+#warning("TO DO: Move and organize magicstrings")
+
 extension Constants {
     // Get an API key from https://developers.giphy.com/dashboard/
     static let giphyApiKey = "1XyHwakiUAAS2h7kiIU3lQrIQcHk71a6"
