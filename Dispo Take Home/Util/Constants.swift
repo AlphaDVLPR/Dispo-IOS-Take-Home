@@ -6,7 +6,7 @@ extension Constants {
     
     //URL Components
     static let giphyApiScheme = "https"
-    static let giphyApiHost = "www.api.giphy.com"
+    static let giphyApiHost = "api.giphy.com"
     
     /**
      For the path make sure to add the last endpoint for what you are referring to in the Giphy API

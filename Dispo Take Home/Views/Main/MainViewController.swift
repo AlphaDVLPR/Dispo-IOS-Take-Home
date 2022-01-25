@@ -2,12 +2,21 @@ import UIKit
 
 class MainViewController: UIViewController {
     
+    var gifObjects: [GifObject] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationItem.titleView = searchBar
         setupViews()
         setupLayouts()
+        GifAPIClient.shared.searchTrendingGifs { (gifObjects) in
+            DispatchQueue.main.async {
+                self.gifObjects = gifObjects
+                self.collectionView.reloadData()
+                print(self.gifObjects)
+            }
+        }
     }
     
     private lazy var searchBar: UISearchBar = {
@@ -61,11 +70,16 @@ extension MainViewController: UISearchBarDelegate {
 //MARK: - CollectionView Datasource and Delegate
 extension MainViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+        return gifObjects.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell(frame: .zero)
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GifCell.identifier, for: indexPath) as! GifCell
+        let gifObject = gifObjects[indexPath.row]
+        cell.setup(with: gifObject)
+        cell.contentView.backgroundColor = .red
+        return cell
     }
 }
 
