@@ -9,10 +9,6 @@
 /* Begin PBXBuildFile section */
 		9A829F02277D7CF7002C03F2 /* APIListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A829F01277D7CF7002C03F2 /* APIListResponse.swift */; };
 		9DF89A43279E56B30067F488 /* GifCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF89A42279E56B30067F488 /* GifCell.swift */; };
-		F88A2D6527A07C6A00768C42 /* GifDetailedID.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F88A2D6327A07C6A00768C42 /* GifDetailedID.xcdatamodeld */; };
-		F88A2D6727A07CC100768C42 /* IDControllerCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88A2D6627A07CC000768C42 /* IDControllerCoreData.swift */; };
-		F88A2D6A27A07DBD00768C42 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88A2D6927A07DBD00768C42 /* CoreDataStack.swift */; };
-		F88A2D6C27A07DF900768C42 /* GifDetailedIDConv.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88A2D6B27A07DF900768C42 /* GifDetailedIDConv.swift */; };
 		F8C99FF2279E1E8B00096DF6 /* GiphyMagicStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C99FF1279E1E8B00096DF6 /* GiphyMagicStrings.swift */; };
 		F8C99FFE279F815F00096DF6 /* FetchImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C99FFD279F815F00096DF6 /* FetchImage.swift */; };
 		F8C9A001279FBFAA00096DF6 /* GifLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C9A000279FBFAA00096DF6 /* GifLoader.swift */; };
@@ -34,10 +30,6 @@
 /* Begin PBXFileReference section */
 		9A829F01277D7CF7002C03F2 /* APIListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIListResponse.swift; sourceTree = "<group>"; };
 		9DF89A42279E56B30067F488 /* GifCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifCell.swift; sourceTree = "<group>"; };
-		F88A2D6427A07C6A00768C42 /* GifDetailedID.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GifDetailedID.xcdatamodel; sourceTree = "<group>"; };
-		F88A2D6627A07CC000768C42 /* IDControllerCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDControllerCoreData.swift; sourceTree = "<group>"; };
-		F88A2D6927A07DBD00768C42 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
-		F88A2D6B27A07DF900768C42 /* GifDetailedIDConv.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifDetailedIDConv.swift; sourceTree = "<group>"; };
 		F8C99FF1279E1E8B00096DF6 /* GiphyMagicStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphyMagicStrings.swift; sourceTree = "<group>"; };
 		F8C99FFD279F815F00096DF6 /* FetchImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchImage.swift; sourceTree = "<group>"; };
 		F8C9A000279FBFAA00096DF6 /* GifLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifLoader.swift; sourceTree = "<group>"; };
@@ -69,15 +61,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F88A2D6827A07DA000768C42 /* CoreDataUtil */ = {
-			isa = PBXGroup;
-			children = (
-				F88A2D6927A07DBD00768C42 /* CoreDataStack.swift */,
-				F88A2D6B27A07DF900768C42 /* GifDetailedIDConv.swift */,
-			);
-			path = CoreDataUtil;
-			sourceTree = "<group>";
-		};
 		F8C99FEC279DFE1A00096DF6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -92,7 +75,6 @@
 			isa = PBXGroup;
 			children = (
 				FF9415E525EEDF380029E28F /* GifApiClient.swift */,
-				F88A2D6627A07CC000768C42 /* IDControllerCoreData.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -103,7 +85,6 @@
 				FF9415F525EEF5760029E28F /* GifInfo.swift */,
 				FF9415E125EEDC3A0029E28F /* SearchResult.swift */,
 				9A829F01277D7CF7002C03F2 /* APIListResponse.swift */,
-				F88A2D6327A07C6A00768C42 /* GifDetailedID.xcdatamodeld */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -158,7 +139,6 @@
 				F8C99FED279DFE7F00096DF6 /* Controllers */,
 				F8C99FEE279DFE8E00096DF6 /* Models */,
 				FF9415EC25EEEA560029E28F /* Util */,
-				F88A2D6827A07DA000768C42 /* CoreDataUtil */,
 				F8C99FFF279FBF9800096DF6 /* Extensions */,
 				F8C99FEF279DFEAB00096DF6 /* Resources */,
 				FF9415C225EECD350029E28F /* Info.plist */,
@@ -284,18 +264,14 @@
 				FF9415F625EEF5760029E28F /* GifInfo.swift in Sources */,
 				FF9415E625EEDF380029E28F /* GifApiClient.swift in Sources */,
 				FF9415D525EED60B0029E28F /* Constants.swift in Sources */,
-				F88A2D6527A07C6A00768C42 /* GifDetailedID.xcdatamodeld in Sources */,
 				FF9415E225EEDC3A0029E28F /* SearchResult.swift in Sources */,
-				F88A2D6A27A07DBD00768C42 /* CoreDataStack.swift in Sources */,
 				F8C9A001279FBFAA00096DF6 /* GifLoader.swift in Sources */,
 				FF9415CB25EED1360029E28F /* MainViewController.swift in Sources */,
 				FF9415B525EECD340029E28F /* AppDelegate.swift in Sources */,
 				F8C99FFE279F815F00096DF6 /* FetchImage.swift in Sources */,
 				FF9415B725EECD340029E28F /* SceneDelegate.swift in Sources */,
-				F88A2D6C27A07DF900768C42 /* GifDetailedIDConv.swift in Sources */,
 				FF9415D225EED25A0029E28F /* DetailViewController.swift in Sources */,
 				9A829F02277D7CF7002C03F2 /* APIListResponse.swift in Sources */,
-				F88A2D6727A07CC100768C42 /* IDControllerCoreData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -525,19 +501,6 @@
 			productName = KingfisherSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
-
-/* Begin XCVersionGroup section */
-		F88A2D6327A07C6A00768C42 /* GifDetailedID.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				F88A2D6427A07C6A00768C42 /* GifDetailedID.xcdatamodel */,
-			);
-			currentVersion = F88A2D6427A07C6A00768C42 /* GifDetailedID.xcdatamodel */;
-			path = GifDetailedID.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = FF9415A925EECD340029E28F /* Project object */;
 }

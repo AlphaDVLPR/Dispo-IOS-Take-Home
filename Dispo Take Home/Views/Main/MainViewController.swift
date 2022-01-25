@@ -99,9 +99,8 @@ extension MainViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let gifID = gifObjects[indexPath.row].id
-        print(gifID)
-        IDControllerCoreData.shared.createGifID(GifID: gifID)
-        print()
+        GifAPIClient.shared.gifID = gifID
+        print(GifAPIClient.shared.gifID)
     }
 }
 

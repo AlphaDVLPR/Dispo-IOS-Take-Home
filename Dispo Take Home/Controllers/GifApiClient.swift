@@ -5,8 +5,9 @@ import UIKit
  */
 
 struct GifAPIClient {
-  // TODO: Implement
-    static let shared = GifAPIClient()
+
+    static var shared = GifAPIClient()
+    var gifID: String = ""
     
     //MARK: - Trending
     func searchTrendingGifs(completion : @escaping ([GifObject]) -> Void) {
