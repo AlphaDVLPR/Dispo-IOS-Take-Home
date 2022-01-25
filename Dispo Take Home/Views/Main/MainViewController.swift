@@ -16,12 +16,12 @@ class MainViewController: UIViewController {
         setupViews()
         setupLayouts()
         updateViews()
-        
     }
     
     private lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
-        searchBar.placeholder = "search gifs..."
+        searchBar.placeholder = "Search Gifs..."
+        searchBar.becomeFirstResponder()
         searchBar.delegate = self
         return searchBar
     }()
@@ -60,13 +60,30 @@ class MainViewController: UIViewController {
             }
         }
     }
+    
+    private func updateSearchViews() {
+        
+    }
 }
 
-// MARK: UISearchBarDelegate
+// MARK: - UISearchBarDelegate
 
 extension MainViewController: UISearchBarDelegate {
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        // TODO: implement
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let searchTerm = searchBar.text,
+              !searchTerm.isEmpty else {return}
+        
+        GifAPIClient.shared.searchGifs(searchTerm: searchTerm) { (searched) in
+            self.gifObjects = searched
+            print(self.gifObjects)
+            
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+                print(self.collectionView)
+                
+            }
+        }
     }
 }
 
@@ -88,29 +105,29 @@ extension MainViewController: UICollectionViewDataSource {
 
 extension MainViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-
+        
         let width = itemWidth(for: view.frame.width, spacing: LayoutConstant.spacing)
-
+        
         return CGSize(width: width, height: LayoutConstant.itemHeight)
     }
-
+    
     func itemWidth(for width: CGFloat, spacing: CGFloat) -> CGFloat {
         let itemsInRow: CGFloat = 2
-
+        
         let totalSpacing: CGFloat = 2 * spacing + (itemsInRow - 1) * spacing
         let finalWidth = (width - totalSpacing) / itemsInRow
-
+        
         return floor(finalWidth)
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: LayoutConstant.spacing, left: LayoutConstant.spacing, bottom: LayoutConstant.spacing, right: LayoutConstant.spacing)
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return LayoutConstant.spacing
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return LayoutConstant.spacing
     }

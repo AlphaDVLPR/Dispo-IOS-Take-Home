@@ -53,7 +53,7 @@ struct GifAPIClient {
     }
     
     //MARK: - Search
-    func searchTrendingGifs(searchTerm: String, completion : @escaping ([GifObject]) -> Void) {
+    func searchGifs(searchTerm: String, completion : @escaping ([GifObject]) -> Void) {
         
         // Example: https://api.giphy.com/v1/gifs/search?api_key=1XyHwakiUAAS2h7kiIU3lQrIQcHk71a6&q=boxes&limit=50&offset=0&rating=g&lang=en
         
@@ -69,7 +69,7 @@ struct GifAPIClient {
         //query items
         let apiQuery = URLQueryItem(name: "api_key", value: Constants.giphyApiKey)
         let searchTermQuery = URLQueryItem(name: "q", value: "\(searchTerm)")
-        let limitQuery = URLQueryItem(name: "limit", value: "50")
+        let limitQuery = URLQueryItem(name: "limit", value: "14")
         let offsetQuery = URLQueryItem(name: "offset", value: "0")
         let ratingQuery = URLQueryItem(name: "rating", value: "pg")
         let languageQuery = URLQueryItem(name: "lang", value: "en")
@@ -79,6 +79,8 @@ struct GifAPIClient {
         
         //creating a request from the URL
         guard let urlRequest = urlComponents?.url else { completion([]) ; return }
+        
+        print(urlRequest)
         
         //data task
         URLSession.shared.dataTask(with: urlRequest) { (data, _, error) in
