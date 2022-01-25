@@ -80,7 +80,7 @@ final class GifCell: UICollectionViewCell {
     }
     
     func setup(with gif: GifObject) {
-        gifImageView.image = try? UIImage(withContentsOfUrl: gif.url)
+        gifImageView.image = try? UIImage(withContentsOfUrl: gif.images.fixed_height.url)
         title.text = gif.title
     }
 }

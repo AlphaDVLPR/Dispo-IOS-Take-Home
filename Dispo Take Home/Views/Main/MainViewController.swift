@@ -19,7 +19,6 @@ class MainViewController: UIViewController {
             DispatchQueue.main.async {
                 self.gifObjects = gifObjects
                 self.collectionView.reloadData()
-                print(self.gifObjects)
             }
         }
     }
@@ -30,12 +29,6 @@ class MainViewController: UIViewController {
         searchBar.delegate = self
         return searchBar
     }()
-    
-    //    private var layout: UICollectionViewLayout {
-    //        // TODO: implement
-    //        UICollectionViewFlowLayout
-    //        fatalError()
-    //    }
     
     private lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(
