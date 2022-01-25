@@ -17,7 +17,7 @@ struct GifObject: Codable {
         var fixed_height: Image
         
         struct Image: Codable {
-            var url: URL?
+            var url: URL
             var width: String
             var height: String
         }

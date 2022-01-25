@@ -16,6 +16,7 @@ class MainViewController: UIViewController {
         setupViews()
         setupLayouts()
         updateViews()
+        
     }
     
     private lazy var searchBar: UISearchBar = {

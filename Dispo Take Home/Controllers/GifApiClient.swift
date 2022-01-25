@@ -24,10 +24,11 @@ struct GifAPIClient {
         
         //query items
         let apiQuery = URLQueryItem(name: "api_key", value: Constants.giphyApiKey)
+        let limitQuery = URLQueryItem(name: "limit", value: "14")
         let ratingQuery = URLQueryItem(name: "rating", value: "pg")
         
         var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
-        urlComponents?.queryItems = [apiQuery, ratingQuery]
+        urlComponents?.queryItems = [apiQuery, limitQuery, ratingQuery]
         
         //creating a request from the URL
         guard let urlRequest = urlComponents?.url else { completion([]) ; return }

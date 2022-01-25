@@ -15,10 +15,10 @@ struct FetchImage {
     func fetchImage(result: GifObject, completion: @escaping (UIImage?) -> Void) {
         
         //This is our Url for the image search  ***refer to Helper File for clarification***
-        guard let unwrappedBaseUrl = result.images.fixed_height.url else { return }
+        let baseUrl = result.images.fixed_height.url
         
         //Start the URL Session
-        URLSession.shared.dataTask(with: unwrappedBaseUrl) { (data, _, error) in
+        URLSession.shared.dataTask(with: baseUrl) { (data, _, error) in
             if let error = error {
                 print("There's an error with the url session broski. \(error) : \(error.localizedDescription)")
             }

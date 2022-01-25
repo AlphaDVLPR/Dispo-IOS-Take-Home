@@ -80,8 +80,7 @@ final class GifCell: UICollectionViewCell {
     }
     
     func setup(with gif: GifObject) {
-        guard let unWrappedGifUrl = gif.images.fixed_height.url else { return }
-        if let loadedGif = UIImage.gifImageWithURL(unWrappedGifUrl.absoluteString) {
+        if let loadedGif = UIImage.gifImageWithURL(gif.images.fixed_height.url.absoluteString) {
             FetchImage.shared.fetchImage(result: gif) { (image) in
                 DispatchQueue.main.async {
                     self.gifImageView.image = loadedGif
