@@ -4,6 +4,11 @@ class MainViewController: UIViewController {
     
     var gifObjects: [GifObject] = []
     
+    private enum LayoutConstant {
+        static let spacing: CGFloat = 16.0
+        static let itemHeight: CGFloat = 300.0
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -83,6 +88,32 @@ extension MainViewController: UICollectionViewDataSource {
     }
 }
 
-extension MainViewController: UICollectionViewDelegate {
-    
+extension MainViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+        let width = itemWidth(for: view.frame.width, spacing: LayoutConstant.spacing)
+
+        return CGSize(width: width, height: LayoutConstant.itemHeight)
+    }
+
+    func itemWidth(for width: CGFloat, spacing: CGFloat) -> CGFloat {
+        let itemsInRow: CGFloat = 2
+
+        let totalSpacing: CGFloat = 2 * spacing + (itemsInRow - 1) * spacing
+        let finalWidth = (width - totalSpacing) / itemsInRow
+
+        return floor(finalWidth)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: LayoutConstant.spacing, left: LayoutConstant.spacing, bottom: LayoutConstant.spacing, right: LayoutConstant.spacing)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return LayoutConstant.spacing
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return LayoutConstant.spacing
+    }
 }
