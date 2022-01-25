@@ -100,7 +100,8 @@ extension MainViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let gifID = gifObjects[indexPath.row].id
         GifAPIClient.shared.gifID = gifID
-        print(GifAPIClient.shared.gifID)
+        let vc = DetailViewController()
+        present(vc, animated: true, completion: nil)
     }
 }
 

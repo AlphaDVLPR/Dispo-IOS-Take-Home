@@ -5,7 +5,7 @@ import UIKit
  */
 
 struct GifAPIClient {
-
+    
     static var shared = GifAPIClient()
     var gifID: String = ""
     
