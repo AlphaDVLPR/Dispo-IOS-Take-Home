@@ -83,7 +83,7 @@ extension MainViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GifCell.identifier, for: indexPath) as! GifCell
         let gifObject = gifObjects[indexPath.row]
         cell.setup(with: gifObject)
-        cell.contentView.backgroundColor = .red
+        cell.contentView.backgroundColor = .lightGray
         return cell
     }
 }

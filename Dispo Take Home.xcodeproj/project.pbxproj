@@ -59,6 +59,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9DF89A44279FA2DC0067F488 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F8C99FFD279F815F00096DF6 /* FetchImage.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		F8C99FEC279DFE1A00096DF6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -129,6 +137,7 @@
 				F8C99FED279DFE7F00096DF6 /* Controllers */,
 				F8C99FEE279DFE8E00096DF6 /* Models */,
 				FF9415EC25EEEA560029E28F /* Util */,
+				9DF89A44279FA2DC0067F488 /* Extensions */,
 				F8C99FEF279DFEAB00096DF6 /* Resources */,
 				FF9415C225EECD350029E28F /* Info.plist */,
 				FF9415BC25EECD350029E28F /* Preview Content */,
@@ -165,7 +174,6 @@
 			children = (
 				FF9415D425EED60B0029E28F /* Constants.swift */,
 				F8C99FF1279E1E8B00096DF6 /* GiphyMagicStrings.swift */,
-				F8C99FFD279F815F00096DF6 /* FetchImage.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
