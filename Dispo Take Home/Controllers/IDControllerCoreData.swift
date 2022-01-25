@@ -15,6 +15,9 @@ struct IDControllerCoreData {
     var fetchedResultsController: NSFetchedResultsController<GifDetailedID>
     init() {
         let fetchRequest: NSFetchRequest<GifDetailedID> = GifDetailedID.fetchRequest()
+        let isComplete = NSSortDescriptor(key: "gifID", ascending: false)
+        
+        fetchRequest.sortDescriptors = [isComplete]
         
         let resultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: CoreDataStack.context, sectionNameKeyPath: nil, cacheName: nil)
         
@@ -35,11 +38,6 @@ struct IDControllerCoreData {
         saveToPersistentStores()
     }
 
-    //Delete
-    func deleteGifID(item: GifDetailedID) {
-        CoreDataStack.context.delete(item)
-        saveToPersistentStores()
-    }
     //Save
     func saveToPersistentStores() {
         do {

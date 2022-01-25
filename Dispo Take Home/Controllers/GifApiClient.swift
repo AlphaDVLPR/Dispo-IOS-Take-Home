@@ -79,9 +79,7 @@ struct GifAPIClient {
         
         //creating a request from the URL
         guard let urlRequest = urlComponents?.url else { completion([]) ; return }
-        
-        print(urlRequest)
-        
+                
         //data task
         URLSession.shared.dataTask(with: urlRequest) { (data, _, error) in
 

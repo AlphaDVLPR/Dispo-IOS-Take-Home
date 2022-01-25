@@ -1,4 +1,5 @@
 import UIKit
+import CoreData
 
 class MainViewController: UIViewController {
     
@@ -95,6 +96,13 @@ extension MainViewController: UICollectionViewDataSource {
         cell.contentView.backgroundColor = .systemBackground
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let gifID = gifObjects[indexPath.row].id
+        print(gifID)
+        IDControllerCoreData.shared.createGifID(GifID: gifID)
+        print()
+    }
 }
 
 extension MainViewController: UICollectionViewDelegateFlowLayout {
@@ -125,3 +133,4 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
         return LayoutConstant.spacing
     }
 }
+
