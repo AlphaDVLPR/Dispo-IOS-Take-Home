@@ -19,6 +19,8 @@ extension GifCell {
     }
     
     func setupLayouts() {
+        gifImageView.translatesAutoresizingMaskIntoConstraints = false
+        title.translatesAutoresizingMaskIntoConstraints = false
         
         // Layout constraints for `GifImage`
         gifImageView.snp.makeConstraints { make in
