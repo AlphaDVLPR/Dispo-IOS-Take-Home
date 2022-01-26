@@ -11,7 +11,6 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         
         setupViews()
-        setupLayouts()
         updateViews()
     }
     
@@ -33,26 +32,6 @@ class DetailViewController: UIViewController {
         view.backgroundColor = .systemBackground
     }
     
-    private func setupLayouts() {
-        gifImageView.translatesAutoresizingMaskIntoConstraints = false
-//        title.translatesAutoresizingMaskIntoConstraints = false
-        
-        // Layout constraints for `GifImage`
-        NSLayoutConstraint.activate([
-            gifImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            gifImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            gifImageView.topAnchor.constraint(equalTo: view.topAnchor),
-            gifImageView.heightAnchor.constraint(equalToConstant: Constants.imageHeight)
-        ])
-        
-        // Layout constraints for 'title'
-//        NSLayoutConstraint.activate([
-//            title.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.horizontalPadding),
-//            title.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.horizontalPadding),
-//            title.topAnchor.constraint(equalTo: gifImageView.bottomAnchor, constant: Constants.gifDescriptionVerticalPadding)
-//        ])
-    }
-    
     private func updateViews() {
         GifAPIClient.shared.requestDetailedGif(gifID: GifAPIClient.shared.gifID) { (gifObjects) in
             DispatchQueue.main.async {
@@ -68,7 +47,6 @@ class DetailViewController: UIViewController {
                 }
             }
         }
-//        title.text = gifDetailedObjects[0].title
     }
 
     //  required init?(coder: NSCoder) {

@@ -23,7 +23,7 @@ struct GifAPIClient {
                 
         //query items
         let apiQuery = URLQueryItem(name: GiphyMagicStrings.giphyApiKeyQuery, value: GiphyMagicStrings.giphyApiKey)
-        let limitQuery = URLQueryItem(name: "limit", value: "14")
+        let limitQuery = URLQueryItem(name: "limit", value: "24")
         let ratingQuery = URLQueryItem(name: "rating", value: "pg")
         
         var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
@@ -66,7 +66,7 @@ struct GifAPIClient {
         //query items
         let apiQuery = URLQueryItem(name: GiphyMagicStrings.giphyApiKeyQuery, value: GiphyMagicStrings.giphyApiKey)
         let searchTermQuery = URLQueryItem(name: "q", value: "\(searchTerm)")
-        let limitQuery = URLQueryItem(name: "limit", value: "14")
+        let limitQuery = URLQueryItem(name: "limit", value: "24")
         let offsetQuery = URLQueryItem(name: "offset", value: "0")
         let ratingQuery = URLQueryItem(name: "rating", value: "pg")
         let languageQuery = URLQueryItem(name: "lang", value: "en")
