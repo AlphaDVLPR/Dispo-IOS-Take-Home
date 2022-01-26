@@ -14,20 +14,7 @@ protocol ReusableView: AnyObject {
 //No other class needs to inherit from this class so I am using 'final'
 final class GifCell: UICollectionViewCell {
     
-    //MagicKeys
-    private enum Constants {
-        
-        //ImageView layout constants
-        static let imageHeight: CGFloat = 180.0
-        
-        //layout constants
-        static let contentViewCornerRadius: CGFloat = 8.0
-        static let verticalSpacing: CGFloat = 8.0
-        static let horizontalPadding: CGFloat = 16.0
-        static let gifDescriptionVerticalPadding: CGFloat = 8.0
-    }
-    
-    private let gifImageView: UIImageView = {
+    let gifImageView: UIImageView = {
         let imageView = UIImageView(frame: .zero)
         imageView.contentMode = .scaleToFill
         return imageView
@@ -46,47 +33,9 @@ final class GifCell: UICollectionViewCell {
         setupLayouts()
     }
     
-    private func setupViews() {
-        contentView.clipsToBounds = true
-        contentView.backgroundColor = .systemBackground
-        
-        contentView.addSubview(gifImageView)
-        contentView.addSubview(title)
-    }
-    
-    private func setupLayouts() {
-        gifImageView.translatesAutoresizingMaskIntoConstraints = false
-        title.translatesAutoresizingMaskIntoConstraints = false
-        
-        // Layout constraints for `GifImage`
-        NSLayoutConstraint.activate([
-            gifImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            gifImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            gifImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            gifImageView.heightAnchor.constraint(equalToConstant: Constants.imageHeight)
-        ])
-        
-        // Layout constraints for 'title'
-        NSLayoutConstraint.activate([
-            title.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Constants.horizontalPadding),
-            title.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Constants.horizontalPadding),
-            title.topAnchor.constraint(equalTo: gifImageView.bottomAnchor, constant: Constants.gifDescriptionVerticalPadding)
-        ])
-    }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    func setup(with gif: GifObject) {
-        if let loadedGif = UIImage.gifImageWithURL(gif.images.fixed_height.url.absoluteString) {
-            FetchImage.shared.fetchImage(result: gif) { (image) in
-                DispatchQueue.main.async {
-                    self.gifImageView.image = loadedGif
-                }
-            }
-        }
-        title.text = gif.title
     }
 }
 

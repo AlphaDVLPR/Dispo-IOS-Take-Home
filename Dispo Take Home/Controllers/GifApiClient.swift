@@ -11,20 +11,18 @@ struct GifAPIClient {
     
     //MARK: - Trending
     func searchTrendingGifs(completion : @escaping ([GifObject]) -> Void) {
-        
-        // Example: https://api.giphy.com/v1/gifs/trending?api_key=1XyHwakiUAAS2h7kiIU3lQrIQcHk71a6&limit=25&rating=g
-        
+
         //URL
         var urlComponent = URLComponents()
         
-        urlComponent.scheme = Constants.giphyApiScheme
-        urlComponent.host = Constants.giphyApiHost
-        urlComponent.path = "/v1/gifs/trending"
+        urlComponent.scheme = GiphyMagicStrings.giphyApiScheme
+        urlComponent.host = GiphyMagicStrings.giphyApiHost
+        urlComponent.path = GiphyMagicStrings.giphyApiPathTrending
         
         guard let baseURL = urlComponent.url else { return }
-        
+                
         //query items
-        let apiQuery = URLQueryItem(name: "api_key", value: Constants.giphyApiKey)
+        let apiQuery = URLQueryItem(name: GiphyMagicStrings.giphyApiKeyQuery, value: GiphyMagicStrings.giphyApiKey)
         let limitQuery = URLQueryItem(name: "limit", value: "14")
         let ratingQuery = URLQueryItem(name: "rating", value: "pg")
         
@@ -56,19 +54,17 @@ struct GifAPIClient {
     //MARK: - Search
     func searchGifs(searchTerm: String, completion : @escaping ([GifObject]) -> Void) {
         
-        // Example: https://api.giphy.com/v1/gifs/search?api_key=1XyHwakiUAAS2h7kiIU3lQrIQcHk71a6&q=boxes&limit=50&offset=0&rating=g&lang=en
-        
         //URL
         var urlComponent = URLComponents()
         
-        urlComponent.scheme = Constants.giphyApiScheme
-        urlComponent.host = Constants.giphyApiHost
-        urlComponent.path = "/v1/gifs/search"
+        urlComponent.scheme = GiphyMagicStrings.giphyApiScheme
+        urlComponent.host = GiphyMagicStrings.giphyApiHost
+        urlComponent.path = GiphyMagicStrings.giphyApiPathSearch
         
         guard let baseURL = urlComponent.url else { return }
         
         //query items
-        let apiQuery = URLQueryItem(name: "api_key", value: Constants.giphyApiKey)
+        let apiQuery = URLQueryItem(name: GiphyMagicStrings.giphyApiKeyQuery, value: GiphyMagicStrings.giphyApiKey)
         let searchTermQuery = URLQueryItem(name: "q", value: "\(searchTerm)")
         let limitQuery = URLQueryItem(name: "limit", value: "14")
         let offsetQuery = URLQueryItem(name: "offset", value: "0")
@@ -102,20 +98,18 @@ struct GifAPIClient {
     
     //MARK: - Detailed Gif by ID
     func requestDetailedGif(gifID: String, completion : @escaping ([GifObject]) -> Void) {
-        
-        // Example: https://api.giphy.com/v1/gifs/kdpSpT0iQs0ZMttgV9?api_key=1XyHwakiUAAS2h7kiIU3lQrIQcHk71a6
-        
+
         //URL
         var urlComponent = URLComponents()
         
-        urlComponent.scheme = Constants.giphyApiScheme
-        urlComponent.host = Constants.giphyApiHost
-        urlComponent.path = "/v1/gifs/\(gifID)"
+        urlComponent.scheme = GiphyMagicStrings.giphyApiScheme
+        urlComponent.host = GiphyMagicStrings.giphyApiHost
+        urlComponent.path = "\(GiphyMagicStrings.giphyApiGlobalPath)\(gifID)"
         
         guard let baseURL = urlComponent.url else { return }
         
         //query items
-        let apiQuery = URLQueryItem(name: "api_key", value: Constants.giphyApiKey)
+        let apiQuery = URLQueryItem(name: GiphyMagicStrings.giphyApiKeyQuery, value: GiphyMagicStrings.giphyApiKey)
         
         var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
         urlComponents?.queryItems = [apiQuery]

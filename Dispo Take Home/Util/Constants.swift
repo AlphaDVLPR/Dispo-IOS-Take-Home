@@ -1,19 +1,15 @@
+import UIKit
+
 enum Constants {}
 
-#warning("TO DO: Move and organize magicstrings")
-
 extension Constants {
-    // Get an API key from https://developers.giphy.com/dashboard/
-    static let giphyApiKey = "1XyHwakiUAAS2h7kiIU3lQrIQcHk71a6"
+
+    //ImageView layout constants
+    static let imageHeight: CGFloat = 180.0
     
-    //URL Components
-    static let giphyApiScheme = "https"
-    static let giphyApiHost = "api.giphy.com"
-    
-    /**
-     For the path make sure to add the last endpoint for what you are referring to in the Giphy API
-     
-        Example: "Constants.giphyApiPath"
-     */
-    static let giphyApiPath = "/v1/gifs/"
+    //layout constants
+    static let contentViewCornerRadius: CGFloat = 8.0
+    static let verticalSpacing: CGFloat = 8.0
+    static let horizontalPadding: CGFloat = 16.0
+    static let gifDescriptionVerticalPadding: CGFloat = 8.0
 }
