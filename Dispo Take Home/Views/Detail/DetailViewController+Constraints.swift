@@ -2,7 +2,7 @@
 //  DetailViewController+Constraints.swift
 //  Dispo Take Home
 //
-//  Created by Ashlyn Loveland on 1/26/22.
+//  Created by Jesse Cacanindin on 1/26/22.
 //
 
 import Foundation
@@ -17,6 +17,8 @@ extension DetailViewController {
         view.addSubview(titleDetailed)
         view.addSubview(sourceDetailed)
         view.addSubview(ratingDetailed)
+        view.addSubview(urlDetailed)
+        view.addSubview(idDetailed)
     }
     
     func setupLayouts() {
@@ -49,6 +51,20 @@ extension DetailViewController {
             make.leading.equalToSuperview().offset(Constants.horizontalPadding)
             make.trailing.equalToSuperview().offset(-Constants.horizontalPadding)
             make.top.equalTo(sourceDetailed.snp.bottom).offset(Constants.gifDescriptionVerticalPadding)
+        }
+        
+        // Layout constraints for 'url'
+        urlDetailed.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(Constants.horizontalPadding)
+            make.trailing.equalToSuperview().offset(-Constants.horizontalPadding)
+            make.top.equalTo(ratingDetailed.snp.bottom).offset(Constants.gifDescriptionVerticalPadding)
+        }
+        
+        // Layout constraints for 'id'
+        idDetailed.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(Constants.horizontalPadding)
+            make.trailing.equalToSuperview().offset(-Constants.horizontalPadding)
+            make.top.equalTo(urlDetailed.snp.bottom).offset(Constants.gifDescriptionVerticalPadding)
         }
     }
 }

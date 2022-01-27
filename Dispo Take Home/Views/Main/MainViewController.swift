@@ -58,8 +58,8 @@ class MainViewController: UIViewController {
     
     private func updateViews() {
         GifAPIClient.searchTrendingGifs { (gifObjects) in
+            self.gifObjects = gifObjects
             DispatchQueue.main.async {
-                self.gifObjects = gifObjects
                 self.collectionView.reloadData()
             }
         }
@@ -86,8 +86,8 @@ extension MainViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.count == 0 {
             GifAPIClient.searchTrendingGifs { (gifObjects) in
+                self.gifObjects = gifObjects
                 DispatchQueue.main.async {
-                    self.gifObjects = gifObjects
                     self.collectionView.reloadData()
                 }
             }

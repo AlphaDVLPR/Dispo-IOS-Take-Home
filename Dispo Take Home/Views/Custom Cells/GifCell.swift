@@ -2,7 +2,7 @@
 //  GifCell.swift
 //  Dispo Take Home
 //
-//  Created by Ashlyn Loveland on 1/23/22.
+//  Created by Jesse Cacanindin on 1/23/22.
 //
 
 import UIKit

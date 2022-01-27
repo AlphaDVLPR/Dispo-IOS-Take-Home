@@ -20,6 +20,8 @@ class DetailViewController: UIViewController {
                 titleDetailed.text = "TITLE: \(gifDetailed.title)"
                 sourceDetailed.text = "SOURCE: \(gifDetailed.source_tld)"
                 ratingDetailed.text = "RATING: \(gifDetailed.rating)"
+                urlDetailed.text = "URL: \(gifDetailed.url)"
+                idDetailed.text = "GIF ID: \(gifDetailed.id)"
             } catch {
                 print("Unable to Decode Note (\(error))")
             }
@@ -47,6 +49,20 @@ class DetailViewController: UIViewController {
     }()
     
     let ratingDetailed: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.textAlignment = .left
+        label.numberOfLines = 0
+        return label
+    }()
+    
+    let urlDetailed: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.textAlignment = .left
+        label.numberOfLines = 0
+        return label
+    }()
+
+    let idDetailed: UILabel = {
         let label = UILabel(frame: .zero)
         label.textAlignment = .left
         label.numberOfLines = 0
