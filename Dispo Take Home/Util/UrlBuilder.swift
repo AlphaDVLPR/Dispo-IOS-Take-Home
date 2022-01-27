@@ -8,6 +8,8 @@
 import Foundation
 
 struct UrlBuilder {
+    
+    //Build custom url components for url
     static func urlComponentBuilder(scheme: String, host: String, path: String) -> URL? {
         
         var urlComponent = URLComponents()
@@ -21,6 +23,7 @@ struct UrlBuilder {
         return baseURL
     }
     
+    //Build custom queries for url
     static func queriesBuilder(queries: [String: String]) -> [URLQueryItem] {
         var queryArray: [URLQueryItem] = []
         

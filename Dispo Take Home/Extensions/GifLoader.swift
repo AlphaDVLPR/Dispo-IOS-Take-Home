@@ -32,6 +32,7 @@ extension UIImage {
         return UIImage.animatedImageWithSource(source)
     }
     
+    
     public class func gifImageWithURL(url: URL, completion: @escaping (UIImage?) -> Void) {
         
         guard let imageData = try? Data(contentsOf: url) else {

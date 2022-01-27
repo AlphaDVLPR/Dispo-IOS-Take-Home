@@ -9,15 +9,12 @@ import Foundation
 
 extension UserDefaults {
     
+    //Encode object into data
     static func encodeGifObject(object: GifObject, key: String) {
         do {
-            // Create JSON Encoder
+
             let encoder = JSONEncoder()
-
-            // Encode Note
             let data = try encoder.encode(object)
-
-            // Write/Set Data
             UserDefaults.standard.set(data, forKey: key)
             
         } catch {

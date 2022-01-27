@@ -17,7 +17,6 @@
 		F88A2D6E27A0FF8C00768C42 /* GifCell+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88A2D6D27A0FF8C00768C42 /* GifCell+Constraints.swift */; };
 		F88A2D7027A100A300768C42 /* GifCell+Logic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88A2D6F27A100A300768C42 /* GifCell+Logic.swift */; };
 		F8C99FF2279E1E8B00096DF6 /* GiphyMagicStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C99FF1279E1E8B00096DF6 /* GiphyMagicStrings.swift */; };
-		F8C99FFE279F815F00096DF6 /* FetchImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C99FFD279F815F00096DF6 /* FetchImage.swift */; };
 		F8C9A001279FBFAA00096DF6 /* GifLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C9A000279FBFAA00096DF6 /* GifLoader.swift */; };
 		FF9415B525EECD340029E28F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9415B425EECD340029E28F /* AppDelegate.swift */; };
 		FF9415B725EECD340029E28F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9415B625EECD340029E28F /* SceneDelegate.swift */; };
@@ -29,9 +28,7 @@
 		FF9415D225EED25A0029E28F /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9415D125EED2590029E28F /* DetailViewController.swift */; };
 		FF9415D525EED60B0029E28F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9415D425EED60B0029E28F /* Constants.swift */; };
 		FF9415DF25EEDC000029E28F /* KingfisherSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = FF9415DE25EEDC000029E28F /* KingfisherSwiftUI */; };
-		FF9415E225EEDC3A0029E28F /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9415E125EEDC3A0029E28F /* SearchResult.swift */; };
 		FF9415E625EEDF380029E28F /* GifApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9415E525EEDF380029E28F /* GifApiClient.swift */; };
-		FF9415F625EEF5760029E28F /* GifInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9415F525EEF5760029E28F /* GifInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,7 +42,6 @@
 		F88A2D6D27A0FF8C00768C42 /* GifCell+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GifCell+Constraints.swift"; sourceTree = "<group>"; };
 		F88A2D6F27A100A300768C42 /* GifCell+Logic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GifCell+Logic.swift"; sourceTree = "<group>"; };
 		F8C99FF1279E1E8B00096DF6 /* GiphyMagicStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphyMagicStrings.swift; sourceTree = "<group>"; };
-		F8C99FFD279F815F00096DF6 /* FetchImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchImage.swift; sourceTree = "<group>"; };
 		F8C9A000279FBFAA00096DF6 /* GifLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifLoader.swift; sourceTree = "<group>"; };
 		FF9415B125EECD340029E28F /* Dispo Take Home.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dispo Take Home.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF9415B425EECD340029E28F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -57,9 +53,7 @@
 		FF9415CA25EED1360029E28F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		FF9415D125EED2590029E28F /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		FF9415D425EED60B0029E28F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		FF9415E125EEDC3A0029E28F /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		FF9415E525EEDF380029E28F /* GifApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifApiClient.swift; sourceTree = "<group>"; };
-		FF9415F525EEF5760029E28F /* GifInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,8 +90,6 @@
 		F8C99FEE279DFE8E00096DF6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				FF9415F525EEF5760029E28F /* GifInfo.swift */,
-				FF9415E125EEDC3A0029E28F /* SearchResult.swift */,
 				9A829F01277D7CF7002C03F2 /* APIListResponse.swift */,
 			);
 			path = Models;
@@ -195,7 +187,6 @@
 			isa = PBXGroup;
 			children = (
 				F8C99FF1279E1E8B00096DF6 /* GiphyMagicStrings.swift */,
-				F8C99FFD279F815F00096DF6 /* FetchImage.swift */,
 				9D4661E027A2018900BEB5ED /* ImageCaching.swift */,
 				9D4661E427A22B2D00BEB5ED /* UrlBuilder.swift */,
 			);
@@ -282,17 +273,14 @@
 			files = (
 				F8C99FF2279E1E8B00096DF6 /* GiphyMagicStrings.swift in Sources */,
 				9DF89A43279E56B30067F488 /* GifCell.swift in Sources */,
-				FF9415F625EEF5760029E28F /* GifInfo.swift in Sources */,
 				FF9415E625EEDF380029E28F /* GifApiClient.swift in Sources */,
 				FF9415D525EED60B0029E28F /* Constants.swift in Sources */,
-				FF9415E225EEDC3A0029E28F /* SearchResult.swift in Sources */,
 				9D4661EB27A248DF00BEB5ED /* UserDefaultsManager.swift in Sources */,
 				F8C9A001279FBFAA00096DF6 /* GifLoader.swift in Sources */,
 				F88A2D7027A100A300768C42 /* GifCell+Logic.swift in Sources */,
 				FF9415CB25EED1360029E28F /* MainViewController.swift in Sources */,
 				9D4661E527A22B2D00BEB5ED /* UrlBuilder.swift in Sources */,
 				FF9415B525EECD340029E28F /* AppDelegate.swift in Sources */,
-				F8C99FFE279F815F00096DF6 /* FetchImage.swift in Sources */,
 				9D4661E927A232D500BEB5ED /* DetailViewController+Logic.swift in Sources */,
 				FF9415B725EECD340029E28F /* SceneDelegate.swift in Sources */,
 				FF9415D225EED25A0029E28F /* DetailViewController.swift in Sources */,

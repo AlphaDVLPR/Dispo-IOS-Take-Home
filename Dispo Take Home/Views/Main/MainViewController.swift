@@ -1,5 +1,4 @@
 import UIKit
-import CoreData
 
 class MainViewController: UIViewController {
     
@@ -12,7 +11,7 @@ class MainViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        //All UI Logic here
+        
         navigationItem.titleView = searchBar
         setupViews()
         setupLayouts()
@@ -20,7 +19,7 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //Buisness logic here
+
         updateViews()
     }
     
@@ -82,9 +81,22 @@ extension MainViewController: UISearchBarDelegate {
             }
         }
     }
+    
+    //return trending gifs if search text is cancelled
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.count == 0 {
+            GifAPIClient.searchTrendingGifs { (gifObjects) in
+                DispatchQueue.main.async {
+                    self.gifObjects = gifObjects
+                    self.collectionView.reloadData()
+                }
+            }
+        }
+    }
 }
 
-//MARK: - CollectionView Datasource and Delegate
+//MARK: - CollectionView Datasource
+
 extension MainViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return gifObjects.count
@@ -92,13 +104,8 @@ extension MainViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        //pop up alert for all types of errors
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GifCell.identifier, for: indexPath) as? GifCell else
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GifCell.identifier, for: indexPath) as? GifCell else { return UICollectionViewCell() }
         
-        {
-            //error handling with alert (Ex: Could not create an instance of gifcell using dequene reusable cell) enum for computed properties
-            return UICollectionViewCell()
-        }
         let gifObject = gifObjects[indexPath.row]
         cell.setup(with: gifObject)
         cell.contentView.backgroundColor = .systemBackground
@@ -112,6 +119,8 @@ extension MainViewController: UICollectionViewDataSource {
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
+
+//MARK: - CollectionView Delegate
 
 extension MainViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

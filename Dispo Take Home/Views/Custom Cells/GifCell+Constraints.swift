@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SnapKit
 
 extension GifCell {
     
@@ -20,7 +19,7 @@ extension GifCell {
     
     func setupLayouts() {
         
-        // Layout constraints for `GifImage`
+        // Layout constraints for `GifImageView`
         gifImageView.snp.makeConstraints { make in
             make.leading.equalToSuperview()
             make.top.equalToSuperview()

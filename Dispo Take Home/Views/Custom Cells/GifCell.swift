@@ -11,7 +11,6 @@ protocol ReusableView: AnyObject {
     static var identifier: String { get }
 }
 
-//No other class needs to inherit from this class so I am using 'final'
 final class GifCell: UICollectionViewCell {
     
     let gifImageView: UIImageView = {
@@ -32,7 +31,6 @@ final class GifCell: UICollectionViewCell {
         setupViews()
         setupLayouts()
     }
-    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

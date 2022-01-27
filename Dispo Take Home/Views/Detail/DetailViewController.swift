@@ -4,15 +4,18 @@ class DetailViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        setupViews()
+        setupLayouts()
+    }
+    
+    override func viewDidLoad() {
+
         // Read/Get Data
         if let data = UserDefaults.standard.data(forKey: "gifDetailed") {
             do {
-                // Create JSON Decoder
                 let decoder = JSONDecoder()
-
-                // Decode Note
                 let gifDetailed = try decoder.decode(GifObject.self, from: data)
+                
                 setup(with: gifDetailed)
                 titleDetailed.text = "TITLE: \(gifDetailed.title)"
                 sourceDetailed.text = "SOURCE: \(gifDetailed.source_tld)"
@@ -21,11 +24,6 @@ class DetailViewController: UIViewController {
                 print("Unable to Decode Note (\(error))")
             }
         }
-    }
-    
-    override func viewDidLoad() {
-        setupViews()
-        setupLayouts()
     }
     
     let gifImageView: UIImageView = {

@@ -1,9 +1,7 @@
 import UIKit
 
 struct GifAPIClient {
-    
-    // Using user defaults it is a system memory and it will disappear once it is terminated
-    // using
+
     //MARK: - Trending
     static func searchTrendingGifs(completion : @escaping ([GifObject]) -> Void) {
 
@@ -69,6 +67,11 @@ struct GifAPIClient {
     }
     
     //MARK: - Detailed Gif by ID
+    
+    /*
+     Note this function was never called within this project. I am leaving it here for demonstration purposes and to go over why I never needed this function.
+     */
+    
     static func requestDetailedGif(gifID: String, completion : @escaping ([GifObject]) -> Void) {
 
         //URL
