@@ -4,7 +4,7 @@ enum Constants {}
 
 extension Constants {
 
-    //ImageView layout constants
+    //ImageView layout constants for GifCell
     static let imageHeight: CGFloat = 180.0
     
     //layout constants

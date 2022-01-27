@@ -9,7 +9,6 @@ struct GifObject: Codable {
     var title: String
     var source_tld: String
     var rating: String
-    /// Giphy URL (not gif url to be displayed)
     var url: URL
     var images: Images
     

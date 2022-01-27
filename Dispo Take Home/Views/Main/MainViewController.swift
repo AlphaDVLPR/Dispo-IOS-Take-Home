@@ -13,15 +13,14 @@ class MainViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         //All UI Logic here
+        navigationItem.titleView = searchBar
+        setupViews()
+        setupLayouts()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         //Buisness logic here
-        navigationItem.titleView = searchBar
-        setupViews()
-        setupLayouts()
         updateViews()
     }
     
@@ -108,7 +107,8 @@ extension MainViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let gifID = gifObjects[indexPath.row].id
+        let gif = gifObjects[indexPath.row]
+        UserDefaults.encodeGifObject(object: gif, key: "gifDetailed")
         let vc = DetailViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }

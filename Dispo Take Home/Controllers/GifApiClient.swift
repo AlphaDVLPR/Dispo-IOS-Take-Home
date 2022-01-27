@@ -1,9 +1,5 @@
 import UIKit
 
-/**
- All URL's and queries were tested using Postman to save time on my end
- */
-
 struct GifAPIClient {
     
     // Using user defaults it is a system memory and it will disappear once it is terminated
@@ -12,21 +8,11 @@ struct GifAPIClient {
     static func searchTrendingGifs(completion : @escaping ([GifObject]) -> Void) {
 
         //URL
-        var urlComponent = URLComponents()
-        
-        urlComponent.scheme = GiphyMagicStrings.giphyApiScheme
-        urlComponent.host = GiphyMagicStrings.giphyApiHost
-        urlComponent.path = GiphyMagicStrings.giphyApiPathTrending
-        
-        guard let baseURL = urlComponent.url else { return }
+        guard let baseURL = UrlBuilder.urlComponentBuilder(scheme: GiphyMagicStrings.giphyApiScheme, host: GiphyMagicStrings.giphyApiHost, path: GiphyMagicStrings.giphyApiPathTrending) else { return }
                 
-        //query items
-        let apiQuery = URLQueryItem(name: GiphyMagicStrings.giphyApiKeyQuery, value: GiphyMagicStrings.giphyApiKey)
-        let limitQuery = URLQueryItem(name: "limit", value: "24")
-        let ratingQuery = URLQueryItem(name: "rating", value: "pg")
-        
+        //Query Items
         var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
-        urlComponents?.queryItems = [apiQuery, limitQuery, ratingQuery]
+        urlComponents?.queryItems = UrlBuilder.queriesBuilder(queries: ["\(GiphyMagicStrings.giphyApiKeyQuery)":"\(GiphyMagicStrings.giphyApiKey)", "limit":"24", "rating":"pg"])
         
         //creating a request from the URL
         guard let urlRequest = urlComponents?.url else { completion([]) ; return }
@@ -54,26 +40,11 @@ struct GifAPIClient {
     static func searchGifs(searchTerm: String, completion : @escaping ([GifObject]) -> Void) {
         
         //URL
-        var urlComponent = URLComponents()
+        guard let baseURL = UrlBuilder.urlComponentBuilder(scheme: GiphyMagicStrings.giphyApiScheme, host: GiphyMagicStrings.giphyApiHost, path: GiphyMagicStrings.giphyApiPathSearch) else { return }
         
-        urlComponent.scheme = GiphyMagicStrings.giphyApiScheme
-        urlComponent.host = GiphyMagicStrings.giphyApiHost
-        urlComponent.path = GiphyMagicStrings.giphyApiPathSearch
-        
-        guard let baseURL = urlComponent.url else { return }
-        
-        //query items
-        let apiQuery = URLQueryItem(name: GiphyMagicStrings.giphyApiKeyQuery, value: GiphyMagicStrings.giphyApiKey)
-        let searchTermQuery = URLQueryItem(name: "q", value: "\(searchTerm)")
-        let limitQuery = URLQueryItem(name: "limit", value: "24")
-        let offsetQuery = URLQueryItem(name: "offset", value: "0")
-        let ratingQuery = URLQueryItem(name: "rating", value: "pg")
-        let languageQuery = URLQueryItem(name: "lang", value: "en")
-        
-        //array of strings function to loop through queries
-        
+        //Query items
         var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
-        urlComponents?.queryItems = [apiQuery, searchTermQuery, limitQuery, offsetQuery, ratingQuery, languageQuery]
+        urlComponents?.queryItems = UrlBuilder.queriesBuilder(queries: ["\(GiphyMagicStrings.giphyApiKeyQuery)":"\(GiphyMagicStrings.giphyApiKey)", "q":"\(searchTerm)", "limit":"24", "offset":"0", "rating":"pg", "lang":"en"])
         
         //creating a request from the URL
         guard let urlRequest = urlComponents?.url else { completion([]) ; return }
@@ -101,19 +72,12 @@ struct GifAPIClient {
     static func requestDetailedGif(gifID: String, completion : @escaping ([GifObject]) -> Void) {
 
         //URL
-        var urlComponent = URLComponents()
-        
-        urlComponent.scheme = GiphyMagicStrings.giphyApiScheme
-        urlComponent.host = GiphyMagicStrings.giphyApiHost
-        urlComponent.path = "\(GiphyMagicStrings.giphyApiGlobalPath)\(gifID)"
-        
-        guard let baseURL = urlComponent.url else { return }
+
+        guard let baseURL = UrlBuilder.urlComponentBuilder(scheme: GiphyMagicStrings.giphyApiScheme, host: GiphyMagicStrings.giphyApiHost, path: "\(GiphyMagicStrings.giphyApiGlobalPath)\(gifID)") else { return }
         
         //query items
-        let apiQuery = URLQueryItem(name: GiphyMagicStrings.giphyApiKeyQuery, value: GiphyMagicStrings.giphyApiKey)
-        
         var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
-        urlComponents?.queryItems = [apiQuery]
+        urlComponents?.queryItems = UrlBuilder.queriesBuilder(queries: ["\(GiphyMagicStrings.giphyApiKeyQuery)":"\(GiphyMagicStrings.giphyApiKey)"])
         
         //creating a request from the URL
         guard let urlRequest = urlComponents?.url else { completion([]) ; return }

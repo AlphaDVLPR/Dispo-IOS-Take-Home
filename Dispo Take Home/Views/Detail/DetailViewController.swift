@@ -1,26 +1,31 @@
 import UIKit
 
 class DetailViewController: UIViewController {
-    
-    var gifDetailedObjects: [GifObject] = []
-    
-    //  init(searchResult: SearchResult) {
-    //    super.init(nibName: nil, bundle: nil)
-    //  }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //This is where we want to load the data of GifObject
         
+        // Read/Get Data
+        if let data = UserDefaults.standard.data(forKey: "gifDetailed") {
+            do {
+                // Create JSON Decoder
+                let decoder = JSONDecoder()
+
+                // Decode Note
+                let gifDetailed = try decoder.decode(GifObject.self, from: data)
+                setup(with: gifDetailed)
+            } catch {
+                print("Unable to Decode Note (\(error))")
+            }
+        }
     }
     
     override func viewDidLoad() {
-        
-//        setupViews()
-//        updateViews()
+        setupViews()
+        setupLayouts()
     }
     
-    private let gifImageView: UIImageView = {
+    let gifImageView: UIImageView = {
         let imageView = UIImageView(frame: .zero)
         imageView.contentMode = .scaleToFill
         return imageView
@@ -32,11 +37,6 @@ class DetailViewController: UIViewController {
 //        label.numberOfLines = 0
 //        return label
 //    }()
-    
-    private func setupViews() {
-        view = UIView()
-        view.backgroundColor = .systemBackground
-    }
     
     //Wondering if it would be better to get the search result first
 //    private func updateViews() {
@@ -57,8 +57,4 @@ class DetailViewController: UIViewController {
 //    }
     
     //Cache the images using urlstring for the image that way you can tell if it's on the device already or do another network request
-
-    //  required init?(coder: NSCoder) {
-    //    fatalError("init(coder:) has not been implemented")
-    //  }
 }
