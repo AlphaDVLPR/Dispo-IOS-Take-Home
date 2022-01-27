@@ -8,10 +8,16 @@ class DetailViewController: UIViewController {
     //    super.init(nibName: nil, bundle: nil)
     //  }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        //This is where we want to load the data of GifObject
+        
+    }
+    
     override func viewDidLoad() {
         
-        setupViews()
-        updateViews()
+//        setupViews()
+//        updateViews()
     }
     
     private let gifImageView: UIImageView = {
@@ -32,22 +38,25 @@ class DetailViewController: UIViewController {
         view.backgroundColor = .systemBackground
     }
     
-    private func updateViews() {
-        GifAPIClient.shared.requestDetailedGif(gifID: GifAPIClient.shared.gifID) { (gifObjects) in
-            DispatchQueue.main.async {
-                self.gifDetailedObjects = gifObjects
-                print(self.gifDetailedObjects)
-            }
-        }
-        
-        if let loadedGif = UIImage.gifImageWithURL(gifDetailedObjects[0].images.fixed_height.url.absoluteString) {
-            FetchImage.shared.fetchImage(result: gifDetailedObjects[0]) { (image) in
-                DispatchQueue.main.async {
-                    self.gifImageView.image = loadedGif
-                }
-            }
-        }
-    }
+    //Wondering if it would be better to get the search result first
+//    private func updateViews() {
+//        GifAPIClient.requestDetailedGif(gifID: GifAPIClient.shared.gifID) { (gifObjects) in
+//            DispatchQueue.main.async {
+//                self.gifDetailedObjects = gifObjects
+//                print(self.gifDetailedObjects)
+//            }
+//        }
+//
+//        if let loadedGif = UIImage.gifImageWithURL(gifDetailedObjects[0].images.fixed_height.url.absoluteString) {
+//            FetchImage.fetchImage(result: gifDetailedObjects[0]) { (image) in
+//                DispatchQueue.main.async {
+//                    self.gifImageView.image = loadedGif
+//                }
+//            }
+//        }
+//    }
+    
+    //Cache the images using urlstring for the image that way you can tell if it's on the device already or do another network request
 
     //  required init?(coder: NSCoder) {
     //    fatalError("init(coder:) has not been implemented")

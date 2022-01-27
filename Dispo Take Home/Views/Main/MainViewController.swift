@@ -11,9 +11,14 @@ class MainViewController: UIViewController {
         static let itemHeight: CGFloat = 300.0
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        //All UI Logic here
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Buisness logic here
         navigationItem.titleView = searchBar
         setupViews()
         setupLayouts()
@@ -55,7 +60,7 @@ class MainViewController: UIViewController {
     }
     
     private func updateViews() {
-        GifAPIClient.shared.searchTrendingGifs { (gifObjects) in
+        GifAPIClient.searchTrendingGifs { (gifObjects) in
             DispatchQueue.main.async {
                 self.gifObjects = gifObjects
                 self.collectionView.reloadData()
@@ -72,7 +77,7 @@ extension MainViewController: UISearchBarDelegate {
         guard let searchTerm = searchBar.text,
               !searchTerm.isEmpty else {return}
         
-        GifAPIClient.shared.searchGifs(searchTerm: searchTerm) { (searched) in
+        GifAPIClient.searchGifs(searchTerm: searchTerm) { (searched) in
             self.gifObjects = searched
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
@@ -89,7 +94,13 @@ extension MainViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GifCell.identifier, for: indexPath) as! GifCell
+        //pop up alert for all types of errors
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GifCell.identifier, for: indexPath) as? GifCell else
+        
+        {
+            //error handling with alert (Ex: Could not create an instance of gifcell using dequene reusable cell) enum for computed properties
+            return UICollectionViewCell()
+        }
         let gifObject = gifObjects[indexPath.row]
         cell.setup(with: gifObject)
         cell.contentView.backgroundColor = .systemBackground
@@ -98,7 +109,6 @@ extension MainViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let gifID = gifObjects[indexPath.row].id
-        GifAPIClient.shared.gifID = gifID
         let vc = DetailViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }

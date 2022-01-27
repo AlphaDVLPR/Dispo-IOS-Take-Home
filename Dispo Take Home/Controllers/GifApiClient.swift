@@ -6,11 +6,10 @@ import UIKit
 
 struct GifAPIClient {
     
-    static var shared = GifAPIClient()
-    var gifID: String = ""
-    
+    // Using user defaults it is a system memory and it will disappear once it is terminated
+    // using
     //MARK: - Trending
-    func searchTrendingGifs(completion : @escaping ([GifObject]) -> Void) {
+    static func searchTrendingGifs(completion : @escaping ([GifObject]) -> Void) {
 
         //URL
         var urlComponent = URLComponents()
@@ -52,7 +51,7 @@ struct GifAPIClient {
     }
     
     //MARK: - Search
-    func searchGifs(searchTerm: String, completion : @escaping ([GifObject]) -> Void) {
+    static func searchGifs(searchTerm: String, completion : @escaping ([GifObject]) -> Void) {
         
         //URL
         var urlComponent = URLComponents()
@@ -70,6 +69,8 @@ struct GifAPIClient {
         let offsetQuery = URLQueryItem(name: "offset", value: "0")
         let ratingQuery = URLQueryItem(name: "rating", value: "pg")
         let languageQuery = URLQueryItem(name: "lang", value: "en")
+        
+        //array of strings function to loop through queries
         
         var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
         urlComponents?.queryItems = [apiQuery, searchTermQuery, limitQuery, offsetQuery, ratingQuery, languageQuery]
@@ -97,7 +98,7 @@ struct GifAPIClient {
     }
     
     //MARK: - Detailed Gif by ID
-    func requestDetailedGif(gifID: String, completion : @escaping ([GifObject]) -> Void) {
+    static func requestDetailedGif(gifID: String, completion : @escaping ([GifObject]) -> Void) {
 
         //URL
         var urlComponent = URLComponents()

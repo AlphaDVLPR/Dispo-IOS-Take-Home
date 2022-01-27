@@ -8,16 +8,12 @@
 import UIKit
 
 struct FetchImage {
-    
-    static let shared = FetchImage()
-    
+        
     //Fetch Image
-    func fetchImage(result: GifObject, completion: @escaping (UIImage?) -> Void) {
-        
-        let baseUrl = result.images.fixed_height.url
-        
+    static func fetchImage(url: URL, completion: @escaping (UIImage?) -> Void) {
+                
         //Start the URL Session
-        URLSession.shared.dataTask(with: baseUrl) { (data, _, error) in
+        URLSession.shared.dataTask(with: url) { (data, _, error) in
             if let error = error {
                 print("There's an error with the url session broski. \(error) : \(error.localizedDescription)")
             }

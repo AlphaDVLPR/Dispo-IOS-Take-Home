@@ -10,12 +10,10 @@ import UIKit
 extension GifCell {
     
     func setup(with gif: GifObject) {
-        if let loadedGif = UIImage.gifImageWithURL(gif.images.fixed_height.url.absoluteString) {
-            FetchImage.shared.fetchImage(result: gif) { (image) in
-                DispatchQueue.main.async {
-                    self.gifImageView.image = loadedGif
-                }
-            }
+        
+        let gifUrl = gif.images.fixed_height.url.absoluteString
+        DispatchQueue.main.async {
+            self.gifImageView.image = UrlImageModel.init(urlString: gifUrl).image
         }
         title.text = gif.title
     }
