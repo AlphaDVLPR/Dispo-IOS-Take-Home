@@ -52,7 +52,6 @@ class MainViewController: UIViewController {
     }
     
     private func setupLayouts() {
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
